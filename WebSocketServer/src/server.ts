@@ -9,7 +9,6 @@ export function setupServer() {
 
     ws.on("message", (data, isBinary) => {
       console.log("received: %s", data);
-      // const obj = JSON.parse(data.toString("utf8"));
       wss.clients.forEach((client) => {
         if (client !== ws && client.readyState === WebSocket.OPEN) {
           client.send(data, { binary: isBinary });
