@@ -10,6 +10,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  wss?.clients.forEach((ws) => ws.close());
   wss?.close();
 });
 
@@ -37,6 +38,4 @@ test("websockets can communicate", async () => {
   ws1.send("Test");
 
   expect(((await received) as Buffer).toString("utf8")).toBe("Test");
-  ws1.close();
-  ws2.close();
 }, 10000);
