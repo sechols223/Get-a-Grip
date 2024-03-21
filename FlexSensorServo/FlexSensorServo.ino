@@ -4,7 +4,7 @@
 #define PORT = 80;
 
 const int nFingers = 5;
-const int flexPins[] = {7, 8, 9, 10, 11};
+const int flexPins[] = {A0, A1, A2, A3, A4};
 const int servoPins[] = {2, 3, 4, 5, 6};
 //Set the server address
 const char* serverAddress = "";
@@ -57,12 +57,11 @@ void calibrateSensors() {
 }
 
 void setup() {
+  Serial.begin(115200);
   initializeFlexes();
   initializeServos();
 
   calibrateSensors();
-
-	Serial.begin(115200);
 }
 
 void reset() {
@@ -70,10 +69,6 @@ void reset() {
       servos[i].write(90);
     }
     hasReset = true;
-}
-
-void updateServos() {
-
 }
 
 void loop() {
@@ -95,5 +90,5 @@ void loop() {
 
     SERVO_ANGLE[i] = servoAngle;
   }
-  // Serial.println(servoAngle);
+  delay(16);
 }
