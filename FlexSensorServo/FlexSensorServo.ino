@@ -90,5 +90,4 @@ void loop() {
 
     SERVO_ANGLE[i] = servoAngle;
   }
-  delay(16);
 }
