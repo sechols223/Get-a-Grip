@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://yudr08q446fu"]
+
+[ext_resource type="Texture2D" uid="uid://ktdgyka57afj" path="res://hand_outline_by_jared_age_5.svg" id="1_5upwm"]
+[ext_resource type="Script" path="res://hand_control.gd" id="1_f2snw"]
+[ext_resource type="PackedScene" uid="uid://cwthmytyt1bfu" path="res://multi_touch_slider.tscn" id="2_qmtc4"]
+
+[sub_resource type="Curve2D" id="Curve2D_4h63r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -491, -207, 0, 0, 0, 0, -340, 67)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_6qusg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -260, -432, 0, 0, 0, 0, -184, -50)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_bcc31"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -74, -545, 0, 0, 0, 0, -55, -98)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_1aflo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 162, -485, 0, 0, 0, 0, 103, -85)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_6hg0t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 490, 41, 0, 0, 0, 0, 295, 218)
+}
+point_count = 2
+
+[node name="HandControl" type="Node2D"]
+script = ExtResource("1_f2snw")
+metadata/_edit_lock_ = true
+
+[node name="HandSprite" type="Sprite2D" parent="."]
+modulate = Color(0.588235, 0.588235, 0.588235, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_5upwm")
+metadata/_edit_lock_ = true
+
+[node name="PinkySlider" parent="." instance=ExtResource("2_qmtc4")]
+curve = SubResource("Curve2D_4h63r")
+
+[node name="RingSlider" parent="." instance=ExtResource("2_qmtc4")]
+curve = SubResource("Curve2D_6qusg")
+
+[node name="MiddleSlider" parent="." instance=ExtResource("2_qmtc4")]
+curve = SubResource("Curve2D_bcc31")
+
+[node name="IndexSlider" parent="." instance=ExtResource("2_qmtc4")]
+curve = SubResource("Curve2D_1aflo")
+
+[node name="ThumbSlider" parent="." instance=ExtResource("2_qmtc4")]
+curve = SubResource("Curve2D_6hg0t")

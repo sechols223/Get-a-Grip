@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi5d5381a54ya"]
+
+[ext_resource type="Theme" uid="uid://bp875cfs57g2y" path="res://default.tres" id="1_m44i8"]
+[ext_resource type="Script" path="res://start_menu.gd" id="2_robpf"]
+[ext_resource type="Texture2D" uid="uid://3xsa4vnju61k" path="res://hand_by_jared_age_5.svg" id="3_grsal"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o7bnf"]
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uc3q"]
+font_size = 32
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vg8ij"]
+color = Color(0.74902, 0.74902, 0.74902, 1)
+thickness = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4kbn"]
+font_size = 48
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m44i8")
+script = ExtResource("2_robpf")
+default_server_address = "ws://192.168.0.174:8080"
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MenuContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 1000.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="LogoContainer" type="VBoxContainer" parent="Panel/MenuContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="HandTexture" type="TextureRect" parent="Panel/MenuContainer/LogoContainer"]
+layout_mode = 2
+texture = ExtResource("3_grsal")
+stretch_mode = 3
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="Panel/MenuContainer/LogoContainer"]
+layout_mode = 2
+text = "Get a Grip"
+label_settings = SubResource("LabelSettings_o7bnf")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Subtitle" type="Label" parent="Panel/MenuContainer/LogoContainer"]
+layout_mode = 2
+text = "Controller Client"
+label_settings = SubResource("LabelSettings_6uc3q")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MenuContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_vg8ij")
+
+[node name="ConnectionFormContainer" type="VBoxContainer" parent="Panel/MenuContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="ServerAddressLabel" type="Label" parent="Panel/MenuContainer/ConnectionFormContainer"]
+layout_mode = 2
+text = "Server Address"
+label_settings = SubResource("LabelSettings_c4kbn")
+metadata/_edit_lock_ = true
+
+[node name="ServerAddressEntry" type="LineEdit" parent="Panel/MenuContainer/ConnectionFormContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../SubmitButton")
+focus_next = NodePath("../SubmitButton")
+theme_override_font_sizes/font_size = 32
+clear_button_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="SubmitButton" type="Button" parent="Panel/MenuContainer/ConnectionFormContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../ServerAddressEntry")
+focus_previous = NodePath("../ServerAddressEntry")
+theme_override_font_sizes/font_size = 32
+text = "Connect"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Panel/MenuContainer/ConnectionFormContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
