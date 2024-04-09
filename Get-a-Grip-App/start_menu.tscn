@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_m44i8")
 script = ExtResource("2_robpf")
-default_server_address = "ws://192.168.0.174:8080"
+default_server_address = "wss://get-a-grip.onrender.com"
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="."]
