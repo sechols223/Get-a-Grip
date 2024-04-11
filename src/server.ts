@@ -11,7 +11,7 @@ type WebSocketData = {
 const wsMap = new Map<WebSocket, WebSocketData>();
 
 export function setupServer() {
-  const wss = new WebSocketServer({ port: PORT });
+  const wss = new WebSocketServer({ port: Number(PORT) });
 
   wss.on("connection", (ws) => {
     ws.on("error", console.error);
