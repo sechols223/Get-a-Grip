@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bai4imjsdmppf"]
+
+[ext_resource type="Script" path="res://loading_indicator.gd" id="1_160m1"]
+[ext_resource type="Texture2D" uid="uid://3xsa4vnju61k" path="res://hand_by_jared_age_5.svg" id="1_u3cly"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6deqp"]
+font_size = 48
+
+[node name="LoadingIndicator" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_160m1")
+
+[node name="HandIconBox" type="Control" parent="."]
+custom_minimum_size = Vector2(268.5, 297)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HandIcon" type="TextureRect" parent="HandIconBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.25
+offset_top = -148.5
+offset_right = 134.25
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(149.5, 148.5)
+texture = ExtResource("1_u3cly")
+expand_mode = 1
+
+[node name="LoadingText" type="Label" parent="."]
+layout_mode = 2
+text = "Connecting..."
+label_settings = SubResource("LabelSettings_6deqp")
+horizontal_alignment = 1

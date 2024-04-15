@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://coa7lk0pbadyx"]
+
+[ext_resource type="Texture2D" uid="uid://mbxgx4p8p64t" path="res://hand_warn_by_jared_age_5.svg" id="1_m6hfh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnb7d"]
+font_size = 48
+
+[node name="ErrorIndicator" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -184.0
+offset_right = 206.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ErrorIconBox" type="Control" parent="."]
+custom_minimum_size = Vector2(268.5, 297)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ErrorIcon" type="TextureRect" parent="ErrorIconBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.25
+offset_top = -148.5
+offset_right = 134.25
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(149.5, 148.5)
+texture = ExtResource("1_m6hfh")
+expand_mode = 1
+
+[node name="ErrorText" type="Label" parent="."]
+layout_mode = 2
+text = "Connection Failed
+"
+label_settings = SubResource("LabelSettings_bnb7d")
+horizontal_alignment = 1

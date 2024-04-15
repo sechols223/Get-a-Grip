@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Get-a-Grip"
+run/main_scene="res://start_menu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://hand_by_jared_age_5.svg"
+
+[autoload]
+
+WebSocketSettings="*res://web_socket_settings.gd"
+
+[display]
+
+window/size/viewport_width=834
+window/size/viewport_height=1100
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+window/handheld/orientation=1
+window/icon="res://icon.svg"
+window/emulate_touch_from_mouse=false
+
+[dotnet]
+
+project/assembly_name="Get-a-Grip"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
