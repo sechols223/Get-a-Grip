@@ -12,7 +12,7 @@ font_size = 48
 script = ExtResource("1_r1y0r")
 
 [node name="ControllableHand" parent="." instance=ExtResource("1_axdhj")]
-finger_move_speed = 2.0
+finger_move_speed = 5.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
@@ -23,6 +23,7 @@ light_energy = 3.0
 light_angular_distance = 80.0
 
 [node name="ServerAddressForm" parent="." instance=ExtResource("2_jsddy")]
+default_server_address = "wss://get-a-grip.onrender.com"
 
 [node name="FarCameraPos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)

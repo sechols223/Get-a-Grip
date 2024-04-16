@@ -51,8 +51,8 @@ func move_fingers():
 
 func _on_server_address_form_submitted(server_address: String):
 	var tween = create_tween().set_parallel()
-	tween.tween_property(camera_3d, "transform", close_camera_pos.transform, 2)
-	tween.tween_property(camera_3d, "fov", 70, 2)
+	tween.tween_property(camera_3d, "transform", close_camera_pos.transform, 1)
+	tween.tween_property(camera_3d, "fov", 70, 1)
 	tween.tween_property(directional_light_3d, "rotation:x", -PI/4, 3)
 	server_address_form.hide()
 	socket.connect_to_url(server_address)

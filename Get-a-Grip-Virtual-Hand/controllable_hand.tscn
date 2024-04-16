@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://controllable_hand.gd" id="2_pq28a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtagu"]
-albedo_color = Color(1, 1, 0, 1)
 metallic = 1.0
 emission = Color(1, 1, 1, 1)
 grow_amount = -0.01
