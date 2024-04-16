@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://c00k4pxoqchar"]
+
+[ext_resource type="Texture2D" uid="uid://byqboyc6wwkw5" path="res://explosion_sheet.png" id="1_ad13m"]
+[ext_resource type="Script" path="res://kaboom.gd" id="2_dubm6"]
+
+[sub_resource type="Animation" id="Animation_6kpkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r6fvf"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 24]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47jxk"]
+_data = {
+"RESET": SubResource("Animation_6kpkw"),
+"explode": SubResource("Animation_r6fvf")
+}
+
+[node name="Kaboom" type="Sprite3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.000493079, 0.178292, 0.000436246)
+visible = false
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_ad13m")
+hframes = 25
+script = ExtResource("2_dubm6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_47jxk")
+}
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40994, 0)
+billboard = 1
+modulate = Color(1, 0, 0, 1)
+text = "DISCONNECTED"
