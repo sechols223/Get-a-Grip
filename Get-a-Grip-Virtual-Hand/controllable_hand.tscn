@@ -8,7 +8,7 @@ metallic = 1.0
 emission = Color(1, 1, 1, 1)
 grow_amount = -0.01
 
-[sub_resource type="Animation" id="Animation_ubxma"]
+[sub_resource type="Animation" id="Animation_6r8th"]
 resource_name = "IndexBend"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -109,7 +109,7 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -5.99539e-09, -1.09896e-07, -5.35438e-08, 1)
 
-[sub_resource type="Animation" id="Animation_atr0p"]
+[sub_resource type="Animation" id="Animation_26vlo"]
 resource_name = "MiddleBend"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -210,7 +210,7 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -5.99539e-09, -1.09896e-07, -5.35438e-08, 1)
 
-[sub_resource type="Animation" id="Animation_wenva"]
+[sub_resource type="Animation" id="Animation_ep327"]
 resource_name = "PinkyBend"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -311,7 +311,7 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -5.99539e-09, -1.09896e-07, -5.35438e-08, 1)
 
-[sub_resource type="Animation" id="Animation_5gkve"]
+[sub_resource type="Animation" id="Animation_6y6gu"]
 resource_name = "RingBend"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -412,7 +412,7 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, -5.99539e-09, -1.09896e-07, -5.35438e-08, 1)
 
-[sub_resource type="Animation" id="Animation_msg5c"]
+[sub_resource type="Animation" id="Animation_avjyl"]
 resource_name = "ThumbBend"
 tracks/0/type = "rotation_3d"
 tracks/0/imported = true
@@ -513,13 +513,13 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, 3.19569e-09, -1.60653e-08, -2.8849e-08, 1)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0otr3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_txtxl"]
 _data = {
-"IndexBend": SubResource("Animation_ubxma"),
-"MiddleBend": SubResource("Animation_atr0p"),
-"PinkyBend": SubResource("Animation_wenva"),
-"RingBend": SubResource("Animation_5gkve"),
-"ThumbBend": SubResource("Animation_msg5c")
+"IndexBend": SubResource("Animation_6r8th"),
+"MiddleBend": SubResource("Animation_26vlo"),
+"PinkyBend": SubResource("Animation_ep327"),
+"RingBend": SubResource("Animation_6y6gu"),
+"ThumbBend": SubResource("Animation_avjyl")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_04wbg"]
@@ -615,10 +615,12 @@ bones/14/rotation = Quaternion(-5.47152e-09, -1.13621e-07, -3.27782e-08, 1)
 [node name="Cube" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_jtagu")
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_0otr3")
+"": SubResource("AnimationLibrary_txtxl")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = SubResource("AnimationNodeBlendTree_sblsi")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Add2/add_amount = 1.0
