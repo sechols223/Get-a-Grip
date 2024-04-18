@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b46x4c377i3jd"]
+
+[ext_resource type="PackedScene" uid="uid://c0fnn07g37vwa" path="res://controllable_hand.tscn" id="1_axdhj"]
+[ext_resource type="Script" path="res://main.gd" id="1_r1y0r"]
+[ext_resource type="PackedScene" uid="uid://bapuvqciqn1p1" path="res://server_address_form.tscn" id="2_jsddy"]
+[ext_resource type="PackedScene" uid="uid://c00k4pxoqchar" path="res://kaboom.tscn" id="4_al6vt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j084q"]
+font_size = 48
+
+[node name="Main" type="Node"]
+script = ExtResource("1_r1y0r")
+
+[node name="ControllableHand" parent="." instance=ExtResource("1_axdhj")]
+finger_move_speed = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+fov = 1.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_energy = 3.0
+light_angular_distance = 80.0
+
+[node name="ServerAddressForm" parent="." instance=ExtResource("2_jsddy")]
+default_server_address = "wss://get-a-grip.onrender.com"
+
+[node name="FarCameraPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="CloseCameraPos" type="Marker3D" parent="."]
+transform = Transform3D(0.821651, -0.1714, 0.54361, 0, 0.953717, 0.300706, -0.569991, -0.247076, 0.783622, 0.282546, 0.184601, 0.367643)
+
+[node name="Kaboom" parent="." instance=ExtResource("4_al6vt")]
+
+[node name="ConnectingLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Connecting..."
+label_settings = SubResource("LabelSettings_j084q")
+
+[connection signal="submitted" from="ServerAddressForm" to="." method="_on_server_address_form_submitted"]

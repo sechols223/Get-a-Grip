@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ia4w2riweqyk"]
+
+[ext_resource type="Script" path="res://hand_test.gd" id="1_tjry2"]
+[ext_resource type="PackedScene" uid="uid://c0fnn07g37vwa" path="res://controllable_hand.tscn" id="2_u0hpi"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vc2o6"]
+
+[node name="HandTest" type="Node3D"]
+script = ExtResource("1_tjry2")
+
+[node name="ControllableHand" parent="." instance=ExtResource("2_u0hpi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1814, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.877583, -0.229849, 0.420735, 0, 0.877583, 0.479426, -0.479426, -0.420736, 0.770151, 0.163905, 0.416118, 0.300027)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.523082, 0.532545)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_vc2o6")
