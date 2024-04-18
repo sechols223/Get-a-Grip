@@ -15,6 +15,11 @@ wss.on("connection", (ws) => {
       proxyWs.send(data, { binary: isBinary })
     );
   });
+
+  proxyWs.on("message", (data, isBinary) => {
+    ws.send(data, { binary: isBinary });
+  });
+
   proxyWs.on("error", (e) => console.error("proxy ws:", e));
 });
 
