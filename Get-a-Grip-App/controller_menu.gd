@@ -29,7 +29,7 @@ func _process(delta):
 		pass
 	elif state == WebSocketPeer.STATE_CLOSED:
 		if back_button_pressed:
-			get_tree().change_scene_to_file("res://start_menu.tscn")
+			exit()
 			return
 		var code = socket.get_close_code()
 		if code == -1:
@@ -37,11 +37,14 @@ func _process(delta):
 			hand_control_anchor.hide()
 			error_indicator.show()
 		else:
-			pass #todo: handle other close codes
+			exit()
 
 func _on_back_button_pressed():
 	back_button_pressed = true
 	socket.close()
+
+func exit():
+	get_tree().change_scene_to_file("res://start_menu.tscn")
 
 func _on_hand_control_finger_moved(finger: String, new_value: float):
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
