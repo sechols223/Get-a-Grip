@@ -6,5 +6,6 @@ extends Sprite3D
 func boom():
 	show()
 	animation_player.play("explode")
-	await get_tree().create_timer(5).timeout
-	get_tree().quit()
+	await animation_player.animation_finished
+	await get_tree().create_timer(2).timeout
+	get_tree().reload_current_scene()
