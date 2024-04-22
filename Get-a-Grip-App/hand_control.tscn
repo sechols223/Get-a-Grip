@@ -47,14 +47,39 @@ metadata/_edit_lock_ = true
 [node name="PinkySlider" parent="." instance=ExtResource("2_qmtc4")]
 curve = SubResource("Curve2D_4h63r")
 
+[node name="CooldownTimer" type="Timer" parent="PinkySlider"]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="RingSlider" parent="." instance=ExtResource("2_qmtc4")]
 curve = SubResource("Curve2D_6qusg")
+
+[node name="CooldownTimer" type="Timer" parent="RingSlider"]
+wait_time = 0.05
+one_shot = true
+autostart = true
 
 [node name="MiddleSlider" parent="." instance=ExtResource("2_qmtc4")]
 curve = SubResource("Curve2D_bcc31")
 
+[node name="CooldownTimer" type="Timer" parent="MiddleSlider"]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="IndexSlider" parent="." instance=ExtResource("2_qmtc4")]
 curve = SubResource("Curve2D_1aflo")
 
+[node name="CooldownTimer" type="Timer" parent="IndexSlider"]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="ThumbSlider" parent="." instance=ExtResource("2_qmtc4")]
 curve = SubResource("Curve2D_6hg0t")
+
+[node name="CooldownTimer" type="Timer" parent="ThumbSlider"]
+wait_time = 0.05
+one_shot = true
+autostart = true
