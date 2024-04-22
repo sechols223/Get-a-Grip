@@ -26,7 +26,11 @@ var finger_values = {
 
 func _process(delta):
 	for finger: String in finger_sliders:
-		var new_value = finger_sliders[finger].slider_value
+		var finger_slider = (finger_sliders[finger] as FingerSlider)
+		var new_value = finger_slider.slider_value
 		if (new_value != finger_values[finger]):
-			finger_moved.emit(finger, new_value)
-			finger_values[finger] = new_value
+			var cooldown_timer = (finger_slider.get_node("CooldownTimer") as Timer)
+			if cooldown_timer.is_stopped():
+				finger_moved.emit(finger, new_value)
+				cooldown_timer.start()
+				finger_values[finger] = new_value

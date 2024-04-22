@@ -1,4 +1,4 @@
-extends Path2D
+class_name FingerSlider extends Path2D
 
 @onready var thumb = $Thumb
 @onready var thumb_button = $Thumb/ThumbButton
