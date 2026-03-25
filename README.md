@@ -9,3 +9,7 @@ A special thanks to these people. This project would not have been able to happe
 3. Keira Stewart
 4. Jared Talbot
 5. Carrington Wynn
+
+## Related Links
+- [Controller Website Repository](https://github.com/jaredtalbot/CMPS-375-Get-a-Grip-Website)
+- [Virtual Hand Repository](https://github.com/jaredtalbot/Get-a-Grip-Virtual-Hand)
